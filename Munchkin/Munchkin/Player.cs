@@ -6,5 +6,6 @@
         readonly bool isMale;
         byte level = 1;
         Munchkin munchkin;
+        public byte Level => level;
     }
 }
