@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Munchkin
 {
-    internal class Profession : Card
+    internal enum ClothTypeEnum
     {
+        None,
+        Head,
+        Legs,
+        Body,
+        Hand,
+        Hands
     }
 }

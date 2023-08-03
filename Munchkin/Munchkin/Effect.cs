@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Munchkin
 {
-    internal class Profession : Card
+    internal class Effect : Card
     {
+
     }
 }

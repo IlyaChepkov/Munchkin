@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.SymbolStore;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,9 @@ namespace Munchkin
 {
     internal class Card
     {
-        public int a;
+        readonly int? price;
+        readonly string name;
+        internal readonly bool isDoor;
+        readonly string image;
     }
 }

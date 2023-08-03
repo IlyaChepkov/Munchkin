@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Munchkin
 {
-    internal class Profession : Card
+    internal struct ClothConditions
     {
+        int[] profetion;
+        int[] races;
+        bool? isBoy;
     }
 }

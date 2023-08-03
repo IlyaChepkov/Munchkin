@@ -8,6 +8,10 @@ namespace Munchkin
 {
     internal class Cloth : Card
     {
-        readonly int price;
+        ClothTypeEnum type;
+        ClothConditions Conditions;
+        readonly bool isbig;
+        readonly byte bonus;
+        (ClothConditions, byte)[] bonusConditions;
     }
 }

@@ -12,10 +12,17 @@ namespace Munchkin
         Race race;
         List<Card> hand = new List<Card>();
         List<Cloth> inventory = new List<Cloth>();
-        List<Card> effect = new List<Card>();
+        List<Effect> effects = new List<Effect>();
         Player player;
         short Power => player.Level;
         bool isMale;
         string name;
+
+        internal Profession DropProfession()
+        {
+            Profession profession = this.profession;
+            this.profession = null;
+            return profession;
+        }
     }
 }
