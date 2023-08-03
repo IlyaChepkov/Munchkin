@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Munchkin
 {
-    internal class Card
+    public class Card
     {
         readonly int? price;
         readonly string name;

@@ -12,6 +12,5 @@ namespace Munchkin
         readonly int level;
         readonly int levelcount;
         readonly int treasuarecount;
-        readonly
     }
 }
