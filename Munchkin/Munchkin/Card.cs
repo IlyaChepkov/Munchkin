@@ -4,10 +4,18 @@ namespace Munchkin
 {
     public abstract class Card
     {
-        readonly int? price;
-        readonly string name;
+        internal readonly int? price;
+        internal readonly string name;
         internal readonly bool isDoor;
-        readonly string image;
+        internal readonly string image;
+
+        internal Card(int? price, string name, bool isDoor, string image)
+        {
+            this.price = price;
+            this.name = name;
+            this.isDoor = isDoor;
+            this.image = image;
+        }
 
         public static List<Card> CreateCards(XmlNode node)
         {
@@ -37,7 +45,14 @@ namespace Munchkin
                             price = int.Parse(GetFirstXmlNode(card.ChildNodes, "Price").InnerText);
                         for (int i = 0; i < count; i++)
                         {
-
+                            string image;
+                            if (imagesNode == null)
+                                 image = GetFirstXmlNode(card.ChildNodes, "Image").InnerText;
+                            else
+                               image = imagesNode.ChildNodes[i % imagesNode.ChildNodes.Count].InnerText;
+                            Card resultCard;
+                            if (cardType == "Class")
+                                resultCard = new Profession(price, name, isDoor, image);
                         }
                     }
                 }
