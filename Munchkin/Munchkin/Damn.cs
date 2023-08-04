@@ -8,5 +8,9 @@ namespace Munchkin
 {
     internal class Damn : Effect
     {
+        internal Damn(int? price, string name, bool isDoor, string image)
+            : base(price, name, isDoor, image)
+        {
+        }
     }
 }

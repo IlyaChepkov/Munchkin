@@ -1,0 +1,5 @@
+C:\Users\Ilya\Documents\GitHub\Munchkin\Munchkin\Munchkin\obj\Debug\net6.0\Munchkin.csproj.AssemblyReference.cache
+C:\Users\Ilya\Documents\GitHub\Munchkin\Munchkin\Munchkin\obj\Debug\net6.0\Munchkin.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ilya\Documents\GitHub\Munchkin\Munchkin\Munchkin\obj\Debug\net6.0\Munchkin.AssemblyInfoInputs.cache
+C:\Users\Ilya\Documents\GitHub\Munchkin\Munchkin\Munchkin\obj\Debug\net6.0\Munchkin.AssemblyInfo.cs
+C:\Users\Ilya\Documents\GitHub\Munchkin\Munchkin\Munchkin\obj\Debug\net6.0\Munchkin.csproj.CoreCompileInputs.cache

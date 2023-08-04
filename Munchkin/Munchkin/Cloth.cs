@@ -13,5 +13,10 @@ namespace Munchkin
         readonly bool isbig;
         readonly byte bonus;
         (ClothConditions, byte)[] bonusConditions;
+
+        internal Cloth(int? price, string name, bool isDoor, string image)
+            : base(price, name, isDoor, image)
+        {
+        }
     }
 }

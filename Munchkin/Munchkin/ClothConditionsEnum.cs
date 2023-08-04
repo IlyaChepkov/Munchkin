@@ -8,8 +8,14 @@ namespace Munchkin
 {
     internal struct ClothConditions
     {
-        int[] profetion;
-        int[] races;
-        bool? isBoy;
+       internal int[] profession;
+       internal int[] races;
+       internal bool? isBoy;
+        internal ClothConditions(int[] profession, int[] races, bool? isBoy)
+        {
+            this.profession = profession;
+            this.races = races;
+            this.isBoy = isBoy;
+        }
     }
 }

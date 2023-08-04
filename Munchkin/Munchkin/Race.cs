@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Munchkin
 {
-    internal class Race
+    internal class Race : Card
     {
+        internal Race(int? price, string name, bool isDoor, string image)
+            : base(price, name, isDoor, image)
+        {
+        }
     }
 }

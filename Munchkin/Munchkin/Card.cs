@@ -47,12 +47,48 @@ namespace Munchkin
                         {
                             string image;
                             if (imagesNode == null)
-                                 image = GetFirstXmlNode(card.ChildNodes, "Image").InnerText;
+                                image = GetFirstXmlNode(card.ChildNodes, "Image").InnerText;
                             else
-                               image = imagesNode.ChildNodes[i % imagesNode.ChildNodes.Count].InnerText;
-                            Card resultCard;
-                            if (cardType == "Class")
-                                resultCard = new Profession(price, name, isDoor, image);
+                                image = imagesNode.ChildNodes[i % imagesNode.ChildNodes.Count].InnerText;
+                            Card resultCard = null;
+                            switch (cardType)
+                            {
+                                case "Class":
+                                    resultCard = new Profession(price, name, isDoor, image);
+                                    break;
+                                case "Effect":
+                                    resultCard = new Effect(price, name, isDoor, image);
+                                    break;
+                                case "Damn":
+                                    resultCard = new Damn(price, name, isDoor, image);
+                                    break;
+                                case "Race":
+                                    resultCard = new Race(price, name, isDoor, image);
+                                    break;
+                                case "Monster":
+                                    {
+                                        int level = int.Parse(GetFirstXmlNode(card.ChildNodes, "Level").InnerText);
+                                        bool isAndead = bool.Parse(GetFirstXmlNode(card.ChildNodes, "IsAndead").InnerText);
+                                        int levelCount = int.Parse(GetFirstXmlNode(card.ChildNodes, "LevelCount").InnerText);
+                                        int TreasuareCount = int.Parse(GetFirstXmlNode(card.ChildNodes, "TreasuareCount").InnerText);
+                                        resultCard = new Monster(price, name, isDoor, image,
+                                                                    level, isAndead, levelCount, TreasuareCount);
+                                    }
+                                    break;
+                                case "Cloth":
+                                    ClothTypeEnum clothType = (ClothTypeEnum)int.Parse(GetFirstXmlNode(card.ChildNodes, "ClothType").InnerText);
+                                    bool isBig = bool.Parse(GetFirstXmlNode(card.ChildNodes, "IsBig").InnerText);
+                                    int bonus = int.Parse(GetFirstXmlNode(card.ChildNodes, "Bonus").InnerText);
+                                    if (GetFirstXmlNode(card.ChildNodes, "IsBig")?.InnerText != null)
+                                    {
+
+                                    }
+                                    ClothConditions clothConditions = new ClothConditions(null, null, false);
+
+                                    resultCard = new Cloth(price, name, isDoor, image);
+                                    break;
+                            }
+                            cards.Add(resultCard);
                         }
                     }
                 }
