@@ -8,9 +8,11 @@ namespace Munchkin
 {
     internal class Profession : Card
     {
-        internal Profession(int? price, string name, bool isDoor, string image)
-            : base(price, name, isDoor, image)
+        int id;
+        internal Profession(int? price, string name, bool isDoor, string image, string text, int id)
+            : base(price, name, isDoor, image, text)
         {
+            this.id = id;
         }
     }
 }

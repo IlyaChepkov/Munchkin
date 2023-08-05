@@ -18,6 +18,13 @@ namespace Munchkin
         bool isMale;
         string name;
 
+        internal Munchkin(Player player, bool isMale, string name)
+        {
+            this.player = player;
+            this.isMale = isMale;
+            this.name = name;
+        }
+
         internal Profession DropProfession()
         {
             Profession profession = this.profession;

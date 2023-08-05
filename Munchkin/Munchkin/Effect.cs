@@ -8,8 +8,8 @@ namespace Munchkin
 {
     internal class Effect : Card
     {
-        internal Effect(int? price, string name, bool isDoor, string image)
-            : base(price, name, isDoor, image)
+        internal Effect(int? price, string name, bool isDoor, string image, string text)
+            : base(price, name, isDoor, image, text)
         {
         }
     }

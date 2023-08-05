@@ -17,19 +17,13 @@ namespace Munchkin
         Stack<Card> dropTreasuares;
         int selectedPlayer;
         Random cube;
-
-        internal void Drop(Card card)
-        {
-            if (card.isDoor) 
-                dropDoors.Push(card);
-            else
-                dropTreasuares.Push(card);
-        }
+        GameStatusEnum status;
 
         public Game(byte playersCount, List<Card> cards)
         {
             count++;
             Id = count;
+            status = GameStatusEnum.New;
             players = new Player[playersCount];
             cube = new Random();
             doors = new Stack<Card>();
@@ -45,6 +39,34 @@ namespace Munchkin
                     treasuares.Push(cards[index]);
                 cards.RemoveAt(index);
             }
+        }
+
+        public bool AddPlayer(Player player)
+        {
+            if (status == GameStatusEnum.New)
+            {
+               int index = players.ToList().FindIndex(t => t == null);
+                if (index < 0)
+                    return false;
+                players[index] = player;
+                if (players.ToList().FindIndex(t => t == null) < 0)
+                    StartGame();
+                return true;
+            }
+            return false;
+        }
+
+        private void StartGame()
+        {
+
+        }
+
+        internal void Drop(Card card)
+        {
+            if (card.isDoor)
+                dropDoors.Push(card);
+            else
+                dropTreasuares.Push(card);
         }
     }
 }

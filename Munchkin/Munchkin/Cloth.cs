@@ -14,10 +14,10 @@ namespace Munchkin
         readonly byte bonus;
         (ClothConditions, byte)[] bonusConditions;
 
-        internal Cloth(int? price, string name, bool isDoor, string image,
+        internal Cloth(int? price, string name, bool isDoor, string image, string text,
                             ClothTypeEnum type, ClothConditions conditions,
                             bool isbig, byte bonus, (ClothConditions, byte)[] bonusConditions)
-            : base(price, name, isDoor, image)
+            : base(price, name, isDoor, image, text)
         {
             this.type = type;
             this.conditions = conditions;

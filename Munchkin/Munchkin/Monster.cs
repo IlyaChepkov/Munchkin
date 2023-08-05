@@ -13,9 +13,9 @@ namespace Munchkin
         readonly int levelCount;
         readonly int treasuareCount;
 
-        internal Monster(int? price, string name, bool isDoor, string image,
+        internal Monster(int? price, string name, bool isDoor, string image, string text,
                             int level, bool isAndead, int levelCount, int treasuareCount)
-            : base(price, name, isDoor, image)
+            : base(price, name, isDoor, image, text)
         {
             this.level = level;
             this.isAndead = isAndead;
