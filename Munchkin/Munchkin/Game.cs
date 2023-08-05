@@ -36,9 +36,9 @@ namespace Munchkin
             treasuares = new Stack<Card>();
             dropDoors = new Stack<Card>();
             dropTreasuares = new Stack<Card>();
-            int index = cube.Next(cards.Count);
             while (cards.Count > 0)
             {
+                int index = cube.Next(cards.Count);
                 if (cards[index].isDoor)
                     doors.Push(cards[index]);
                 else

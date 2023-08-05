@@ -78,14 +78,22 @@ namespace Munchkin
                                 case "Cloth":
                                     ClothTypeEnum clothType = (ClothTypeEnum)int.Parse(GetFirstXmlNode(card.ChildNodes, "ClothType").InnerText);
                                     bool isBig = bool.Parse(GetFirstXmlNode(card.ChildNodes, "IsBig").InnerText);
-                                    int bonus = int.Parse(GetFirstXmlNode(card.ChildNodes, "Bonus").InnerText);
-                                    if (GetFirstXmlNode(card.ChildNodes, "IsBig")?.InnerText != null)
+                                    byte bonus = byte.Parse(GetFirstXmlNode(card.ChildNodes, "Bonus").InnerText);
+                                    ClothConditions clothConditions = new ClothConditions(GetFirstXmlNode(card.ChildNodes, "Conditions"));
+                                    (ClothConditions, byte)[] bonusCondition;
+                                    XmlNode bonusConditions = GetFirstXmlNode(card.ChildNodes, "BonusConditions");
+                                    if (bonusConditions != null)
                                     {
-
+                                        bonusCondition = new (ClothConditions, byte)[bonusConditions.ChildNodes.Count];
+                                        for (int j = 0; j < bonusCondition.Length; j++)
+                                        {
+                                            bonusCondition[j].Item1 = new ClothConditions(GetFirstXmlNode(bonusConditions.ChildNodes, "Conditions"));
+                                        }
                                     }
-                                    ClothConditions clothConditions = new ClothConditions(null, null, false);
-
-                                    resultCard = new Cloth(price, name, isDoor, image);
+                                    else
+                                        bonusCondition = new (ClothConditions, byte)[0];
+                                    resultCard = new Cloth(price, name, isDoor, image,
+                                                                clothType, clothConditions, isBig, bonus, bonusCondition);
                                     break;
                             }
                             cards.Add(resultCard);
@@ -98,7 +106,7 @@ namespace Munchkin
                 return null;
         }
 
-        private static XmlNode GetFirstXmlNode(XmlNodeList list, string name)
+        internal static XmlNode GetFirstXmlNode(XmlNodeList list, string name)
         {
             foreach (XmlNode node in list)
             {
