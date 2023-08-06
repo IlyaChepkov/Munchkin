@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Munchkin
 {
-    internal class Munchkin
+    public class Munchkin
     {
         Profession profession;
         Race race;
@@ -31,5 +31,7 @@ namespace Munchkin
             this.profession = null;
             return profession;
         }
+
+        internal void GetCardClouse(Card card) => hand.Add(card);
     }
 }

@@ -48,6 +48,8 @@ namespace Munchkin
                int index = players.ToList().FindIndex(t => t == null);
                 if (index < 0)
                     return false;
+                if (players.ToList().Any(t => t.PlayerName == player.PlayerName))
+                    return false;
                 players[index] = player;
                 if (players.ToList().FindIndex(t => t == null) < 0)
                     StartGame();
@@ -58,7 +60,16 @@ namespace Munchkin
 
         private void StartGame()
         {
-
+            status = GameStatusEnum.OpenDoor;
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < players.Length; j++)
+                {
+                    players[j].Munchkin.GetCardClouse(doors.Pop());
+                    players[j].Munchkin.GetCardClouse(treasuares.Pop());
+                }
+            }
+            selectedPlayer = 0;
         }
 
         internal void Drop(Card card)

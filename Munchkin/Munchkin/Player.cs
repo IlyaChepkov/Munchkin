@@ -2,24 +2,23 @@
 {
     public class Player
     {
-        readonly string playerName;
-        readonly bool isMale;
-        byte level = 1;
-        Munchkin munchkin;
-        Game game;
-        public byte Level => level;
+        private readonly bool isMale;
+        public Game Game { get; }
+        public Munchkin Munchkin { get; private set; }
+        public byte Level { get; private set; }
+        public string PlayerName { get; }
 
         public Player(string playerName, bool isMale, Game game, string munchkinName)
         {
-            this.playerName = playerName;
+            PlayerName = playerName;
             this.isMale = isMale;
-            munchkin = new Munchkin(this, isMale, munchkinName);
-            this.game = game;
+            Munchkin = new Munchkin(this, isMale, munchkinName);
+            Game = game;
         }
 
         public void DropProfession()
         {
-           game.Drop(munchkin.DropProfession());
+           Game.Drop(Munchkin.DropProfession());
         }
     }
 }

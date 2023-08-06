@@ -21,7 +21,7 @@ namespace Munchkin
             {
                 profession[i] = int.Parse(professions.ChildNodes[i].InnerText);
             }
-            XmlNode race = Card.GetFirstXmlNode(conditions.ChildNodes, "races");
+            XmlNode race = Card.GetFirstXmlNode(conditions.ChildNodes, "Races");
             int[] races = new int[conditions.ChildNodes.Count];
             for (int i = 0; i < races.Length; i++)
             {

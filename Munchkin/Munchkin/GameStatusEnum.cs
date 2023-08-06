@@ -9,7 +9,12 @@ namespace Munchkin
     internal enum GameStatusEnum
     {
         New, 
-        InProgress,
+        OpenDoor,
+        Batle,
+        CleanStuds,
+        LookingForTrouble,
+        Bounty,
+        EndTurn,
         End
     }
 }
