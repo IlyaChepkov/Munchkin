@@ -1,30 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Munchkin
+﻿namespace Munchkin
 {
     public class Game
     {
+        static int countGames;
+        private Stack<Card> doors;
+        private Stack<Card> treasuares;
+        private Stack<Card> dropDoors;
+        private Stack<Card> dropTreasuares;
+        private Random cube;
+
         public int Id { get; }
-        static int count;
-        Player[] players;
-        Stack<Card> doors;
-        Stack<Card> treasuares;
-        Stack<Card> dropDoors;
-        Stack<Card> dropTreasuares;
-        int selectedPlayer;
-        Random cube;
-        GameStatusEnum status;
+        public Player[] Players { get; }
+        public int SelectedPlayer { get; private set; }
+        public GameStatusEnum Status { get; private set; }
 
         public Game(byte playersCount, List<Card> cards)
         {
-            count++;
-            Id = count;
-            status = GameStatusEnum.New;
-            players = new Player[playersCount];
+            countGames++;
+            Id = countGames;
+            Status = GameStatusEnum.New;
+            Players = new Player[playersCount];
             cube = new Random();
             doors = new Stack<Card>();
             treasuares = new Stack<Card>();
@@ -43,15 +38,15 @@ namespace Munchkin
 
         public bool AddPlayer(Player player)
         {
-            if (status == GameStatusEnum.New)
+            if (Status == GameStatusEnum.New)
             {
-               int index = players.ToList().FindIndex(t => t == null);
+                int index = Players.ToList().FindIndex(t => t == null);
                 if (index < 0)
                     return false;
-                if (players.ToList().Any(t => t.PlayerName == player.PlayerName))
+                if (Players.ToList().Any(t => t.PlayerName == player.PlayerName))
                     return false;
-                players[index] = player;
-                if (players.ToList().FindIndex(t => t == null) < 0)
+                Players[index] = player;
+                if (Players.ToList().FindIndex(t => t == null) < 0)
                     StartGame();
                 return true;
             }
@@ -60,16 +55,16 @@ namespace Munchkin
 
         private void StartGame()
         {
-            status = GameStatusEnum.OpenDoor;
+            Status = GameStatusEnum.OpenDoor;
             for (int i = 0; i < 4; i++)
             {
-                for (int j = 0; j < players.Length; j++)
+                for (int j = 0; j < Players.Length; j++)
                 {
-                    players[j].Munchkin.GetCardClouse(doors.Pop());
-                    players[j].Munchkin.GetCardClouse(treasuares.Pop());
+                    Players[j].Munchkin.GetCardClouse(doors.Pop());
+                    Players[j].Munchkin.GetCardClouse(treasuares.Pop());
                 }
             }
-            selectedPlayer = 0;
+            SelectedPlayer = 0;
         }
 
         internal void Drop(Card card)
@@ -78,6 +73,30 @@ namespace Munchkin
                 dropDoors.Push(card);
             else
                 dropTreasuares.Push(card);
+        }
+
+        internal bool OpenDoor(Player player)
+        {
+            if (Status == GameStatusEnum.OpenDoor && player == Players[SelectedPlayer])
+            {
+                Card door = doors.Pop();
+                if (door is Monster)
+                {
+                    Status = GameStatusEnum.Batle;
+                    return true;
+                }
+                else if (door is Damn)
+                {
+                    Status = GameStatusEnum.FreeTime;
+                    return true;
+                }
+                else
+                {
+                    Status = GameStatusEnum.FreeTime;
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

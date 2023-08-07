@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Munchkin
 {
-    internal enum GameStatusEnum
+    public enum GameStatusEnum
     {
         New, 
         OpenDoor,
         Batle,
-        CleanStuds,
+        FreeTime,
         LookingForTrouble,
         Bounty,
         EndTurn,

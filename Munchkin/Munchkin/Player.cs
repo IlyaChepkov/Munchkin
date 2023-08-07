@@ -20,5 +20,10 @@
         {
            Game.Drop(Munchkin.DropProfession());
         }
+
+        public void OpenDoor()
+        {
+
+        }
     }
 }
