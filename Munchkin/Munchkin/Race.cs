@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Munchkin
 {
-    internal class Race : Card
+    public class Race : Card
     {
         readonly int id;
         internal Race(int? price, string name, bool isDoor, string image, string text, int id)

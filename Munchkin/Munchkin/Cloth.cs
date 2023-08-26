@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Munchkin
 {
-    internal class Cloth : Card
+    public class Cloth : Card
     {
         ClothTypeEnum type;
         ClothConditions conditions;

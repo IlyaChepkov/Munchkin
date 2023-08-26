@@ -1,8 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "LMZ+ILwIMBPw5+/WKyY9eeb7JuAcjfupkwDNH7hctpOg6G0em/87JKvPN2AWCl1zxjEnaqh4EVWTVDwwsv5Tyw==",
+  "dgSpecHash": "G82Pi9rN8ktKsQPIv2Zpf2ECcc/8Kl/asVESDSzvx2KfRsUHwix3cIiiYZqSkw+vntwth7/oLe5RIj7DnYqCJQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Ilya\\Documents\\GitHub\\Munchkin\\Munchkin\\Munchkin\\Munchkin.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Ilya\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\Ilya\\.nuget\\packages\\automapper.collection\\9.0.0\\automapper.collection.9.0.0.nupkg.sha512",
+    "C:\\Users\\Ilya\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
+    "C:\\Users\\Ilya\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\Ilya\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\Ilya\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\Ilya\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\Ilya\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

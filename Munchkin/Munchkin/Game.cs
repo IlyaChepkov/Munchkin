@@ -98,5 +98,15 @@
             }
             return false;
         }
+
+        public List<PlayerDto> GetDto()
+        {
+            List<PlayerDto> playerDtos = new List<PlayerDto>();
+            foreach (var player in Players)
+            {
+                playerDtos.Add(PlayerDto.GetPlayerDto(player));
+            }
+            return playerDtos;
+        }
     }
 }
