@@ -8,30 +8,30 @@ namespace Munchkin
 {
     public class Munchkin
     {
-        Profession profession;
-        Race race;
-        List<Card> hand = new List<Card>();
-        List<Cloth> inventory = new List<Cloth>();
-        List<Effect> effects = new List<Effect>();
-        Player player;
-        short Power => player.Level;
-        bool isMale;
-        string name;
+        public Profession Profession { get; set; }
+        public Race Race { get; set; }
+        public List<Card> Hand { get; set; } = new List<Card>();
+        public List<Cloth> Inventory { get; set; } = new List<Cloth>();
+        public List<Effect> Effects { get; set; } = new List<Effect>();
+        public Player Player { get; set; }
+        public short Power => Player.Level;
+        public bool IsMale { get; set; }
+        public string Name { get; set; }
 
         internal Munchkin(Player player, bool isMale, string name)
         {
-            this.player = player;
-            this.isMale = isMale;
-            this.name = name;
+            this.Player = player;
+            this.IsMale = isMale;
+            this.Name = name;
         }
 
         internal Profession DropProfession()
         {
-            Profession profession = this.profession;
-            this.profession = null;
+            Profession profession = this.Profession;
+            this.Profession = null;
             return profession;
         }
 
-        internal void GetCardClouse(Card card) => hand.Add(card);
+        internal void GetCardClouse(Card card) => Hand.Add(card);
     }
 }

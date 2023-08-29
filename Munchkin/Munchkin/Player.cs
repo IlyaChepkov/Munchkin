@@ -2,10 +2,10 @@
 {
     public class Player
     {
-        private readonly bool isMale;
+        public bool isMale { get; }
         public Game Game { get; }
         public Munchkin Munchkin { get; private set; }
-        public byte Level { get; private set; }
+        public byte Level { get; private set; } = 1;
         public string PlayerName { get; }
 
         public Player(string playerName, bool isMale, Game game, string munchkinName)

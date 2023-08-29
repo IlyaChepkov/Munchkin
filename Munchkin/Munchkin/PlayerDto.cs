@@ -11,15 +11,15 @@ namespace Munchkin
     public class PlayerDto
     {
 
-        public readonly bool isMale;
-        public byte Level { get; private set; }
-        public string PlayerName { get; }
-        public Profession MunchkinProfession;
-        public Race MunchkinRace;
-        public List<Cloth> MunchkinInventory = new List<Cloth>();
-        public List<Effect> MunchkinEffects = new List<Effect>();
-        public bool MunchkinisMale;
-        public string Munchkinname;
+        public bool IsMale { get; set; }
+        public byte Level { get; set; }
+        public string PlayerName { get; set; }
+        public Profession MunchkinProfession { get; set; }
+        public Race MunchkinRace { get; set; }
+        public List<Cloth> MunchkinInventory { get; set; }
+        public List<Effect> MunchkinEffects { get; set; }
+        public bool MunchkinIsMale { get; set; }
+        public string MunchkinName { get; set; }
 
         internal static PlayerDto GetPlayerDto(Player player)
         {
@@ -27,8 +27,6 @@ namespace Munchkin
             {
                 cfg.ShouldMapProperty = pi =>
                 pi.GetMethod != null && (pi.GetMethod.IsPublic || pi.GetMethod.IsPrivate);
-                cfg.CreateMap<Player, PlayerDto>()
-                .IncludeMembers(dest => dest.Munchkin.ToString );
             });
 
             var mapper = configuration.CreateMapper();
