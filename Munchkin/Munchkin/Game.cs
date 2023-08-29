@@ -43,7 +43,7 @@
                 int index = Players.ToList().FindIndex(t => t == null);
                 if (index < 0)
                     return false;
-                if (Players.ToList().Any(t => t == null || t.PlayerName == player.PlayerName))
+                if (Players.ToList().Any(t => t != null && t.PlayerName == player.PlayerName))
                     return false;
                 Players[index] = player;
                 if (Players.ToList().FindIndex(t => t == null) < 0)
