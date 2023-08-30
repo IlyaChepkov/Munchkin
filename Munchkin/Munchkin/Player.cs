@@ -1,8 +1,11 @@
-﻿namespace Munchkin
+﻿using System.Text.Json.Serialization;
+
+namespace Munchkin
 {
     public class Player
     {
         public bool isMale { get; }
+        [JsonIgnore] 
         public Game Game { get; }
         public Munchkin Munchkin { get; private set; }
         public byte Level { get; private set; } = 1;

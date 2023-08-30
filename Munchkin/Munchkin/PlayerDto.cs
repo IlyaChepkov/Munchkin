@@ -27,6 +27,7 @@ namespace Munchkin
             {
                 cfg.ShouldMapProperty = pi =>
                 pi.GetMethod != null && (pi.GetMethod.IsPublic || pi.GetMethod.IsPrivate);
+                cfg.CreateMap<Player, PlayerDto>();
             });
 
             var mapper = configuration.CreateMapper();
